@@ -13,9 +13,14 @@ public class Main {
 		// System.out.println(algo1.arr1[i]);
 		// }
 
-		float[] res = algo1.decomplete(algo1.arr1, algo1.arr2, 4);
+		float[] res = algo1.decomplete(algo1.arr1, algo1.arraySize);
 		for (int i = 0; i < algo1.arr1.length; i++) {
 			System.out.println(res[i]);
+		}
+		float[] res2 = algo1.recomplete(res, 1);
+		System.out.println("\nResultat recomposition\n");
+		for (int i = 0; i < algo1.arr1.length; i++) {
+			System.out.println(res2[i]);
 		}
 	}
 }
