@@ -1,12 +1,12 @@
 package tp1;
 
 public class Algo {
-	public int arraySize = 4;
+	public int arraySize = 8;
 	public float[] arr1;
 	public float[] arr2;
 
 	public Algo() {
-		arr1 = new float[] { 1, 2, 3, 4 };
+		arr1 = new float[] { 1, 8, 5, 8, 4, 2, 1, 753 };
 		arr2 = new float[arraySize];
 	}
 
@@ -29,7 +29,7 @@ public class Algo {
 	public float[] recomposition(float[] arr1, int size) {
 		float[] arr2 = new float[arraySize];
 		int j = 0;
-		for (int i = 0; i < size; i += 2) {
+		for (int i = 0; i < size; i += 1) {
 			arr2[j] = arr1[i] - arr1[i + size];
 			arr2[j + 1] = arr1[i] + arr1[i + size];
 			j += 2;
@@ -45,16 +45,16 @@ public class Algo {
 		while (size > 1) {
 			size = size / 2;
 			arr1 = decomposition(arr1, size);
-			for (int i = 0; i < arr1.length; i++) {
-				System.out.println(arr1[i]);
-			}
-			System.out.println("\n");
 		}
 		return arr1;
 	}
 
 	public float[] recomplete(float[] arr1, int size) {
 		while (size < arraySize) {
+			for (int i = 0; i < arr1.length; i++) {
+				System.out.println(arr1[i]);
+			}
+			System.out.println("\n");
 			arr1 = recomposition(arr1, size);
 			size = size * 2;
 		}
