@@ -10,7 +10,8 @@ public class Algo {
 		arr2 = new float[arraySize];
 	}
 
-	public float[] decomposition(float[] arr1, float[] arr2, int size) {
+	public float[] decomposition(float[] arr1, int size) {
+		float[] arr2 = new float[arraySize];
 		int j = 0;
 		for (int i = 0; i < 2 * size; i += 2) {
 			arr2[j] = (arr1[i] + arr1[i + 1]) / 2;
@@ -20,7 +21,8 @@ public class Algo {
 		return arr2;
 	}
 
-	public float[] recomposition(float[] arr1, float[] arr2, int size) {
+	public float[] recomposition(float[] arr1, int size) {
+		float[] arr2 = new float[arraySize];
 		int j = 0;
 		for (int i = 0; i < size; i += 2) {
 			arr2[j] = arr1[i] - arr1[i + size];
@@ -33,7 +35,7 @@ public class Algo {
 	public float[] decomplete(float[] arr1, float[] arr2, int size){
 		while(size > 1){
 			size = size/2;
-			arr1 = decomposition(arr1, arr2, size);
+			arr1 = decomposition(arr1, size);
 			for (int i = 0; i < arr1.length; i++) {
 				System.out.println(arr1[i]);
 			}

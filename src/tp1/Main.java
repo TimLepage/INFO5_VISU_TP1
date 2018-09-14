@@ -13,9 +13,9 @@ public class Main {
 		// System.out.println(algo1.arr1[i]);
 		// }
 
-		algo1.decomplete(algo1.arr1, algo1.arr2, 4);
+		float[] res = algo1.decomplete(algo1.arr1, algo1.arr2, 4);
 		for (int i = 0; i < algo1.arr1.length; i++) {
-			System.out.println(algo1.arr1[i]);
+			System.out.println(res[i]);
 		}
 	}
 }
