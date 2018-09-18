@@ -4,9 +4,16 @@ public class Algo {
 	public int arraySize = 8;
 	public float[] arr1;
 	public float[] arr2;
+	public float[] arrbase;
 
 	public Algo() {
-		arr1 = new float[] { 1, 8, 5, 8, 4, 2, 1, 753 };
+		arr1 = new float[] { 1, 8, 5, 8, 4, 2, 1, 7 };
+		arrbase = arr1;
+		System.out.println("Tableau initial\n");
+		for (int i = 0; i < arr1.length; i++) {
+			System.out.println(arr1[i]);
+		}
+		System.out.println("\n");
 		arr2 = new float[arraySize];
 	}
 
@@ -51,16 +58,25 @@ public class Algo {
 
 	public float[] recomplete(float[] arr1, int size) {
 		while (size < arraySize) {
-			for (int i = 0; i < arr1.length; i++) {
-				System.out.println(arr1[i]);
-			}
-			System.out.println("\n");
+//			for (int i = 0; i < arr1.length; i++) {
+//				System.out.println(arr1[i]);
+//			}
+//			System.out.println("\n");
 			arr1 = recomposition(arr1, size);
 			size = size * 2;
 		}
 		return arr1;
 	}
 
+	public float[] compression(float[] arr, float epsilon){
+		for(int i = 0; i < arr.length; i++){
+			if(Math.abs(arr[i]) < epsilon){
+				arr[i] = 0;
+			}
+		}
+		return arr;
+	}
+	
 	/**
 	 * @require origin.lenght = end.lenght
 	 * @param origin
