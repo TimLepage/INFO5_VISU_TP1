@@ -1,24 +1,31 @@
 package tp1;
 
 public class Algo {
-	public int arraySize = 8;
-	public float[] arr1;
-	public float[] arr2;
-	public float[] arrbase;
+	public int arraySize = 1024;
+	public double[] arr1;
+	public double[] arr2;
+	public double[] arrbase;
+	boolean debug = true;
 
 	public Algo() {
-		arr1 = new float[] { 1, 8, 5, 8, 4, 2, 1, 7 };
-		arrbase = arr1;
-		System.out.println("Tableau initial\n");
-		for (int i = 0; i < arr1.length; i++) {
-			System.out.println(arr1[i]);
+		arr1 = new double[arraySize];
+		for (int j = 0; j < arraySize; j++) {
+			arr1[j] = Math.sin(Math.pow(j,3));
 		}
-		System.out.println("\n");
-		arr2 = new float[arraySize];
+
+		arrbase = arr1;
+		if (debug) {
+			System.out.println("Tableau initial\n");
+			for (int i = 0; i < arr1.length; i++) {
+				System.out.println(arr1[i]);
+			}
+			System.out.println("\n");
+		}
+		arr2 = new double[arraySize];
 	}
 
-	public float[] decomposition(float[] arr1, int size) {
-		float[] arr2 = new float[arraySize];
+	public double[] decomposition(double[] arr1, int size) {
+		double[] arr2 = new double[arraySize];
 		int j = 0;
 		for (int i = 0; i < 2 * size; i += 2) {
 			arr2[j] = (arr1[i] + arr1[i + 1]) / 2;
@@ -33,8 +40,8 @@ public class Algo {
 		return arr2;
 	}
 
-	public float[] recomposition(float[] arr1, int size) {
-		float[] arr2 = new float[arraySize];
+	public double[] recomposition(double[] arr1, int size) {
+		double[] arr2 = new double[arraySize];
 		int j = 0;
 		for (int i = 0; i < size; i += 1) {
 			arr2[j] = arr1[i] - arr1[i + size];
@@ -48,7 +55,7 @@ public class Algo {
 		return arr2;
 	}
 
-	public float[] decomplete(float[] arr1, int size) {
+	public double[] decomplete(double[] arr1, int size) {
 		while (size > 1) {
 			size = size / 2;
 			arr1 = decomposition(arr1, size);
@@ -56,35 +63,34 @@ public class Algo {
 		return arr1;
 	}
 
-	public float[] recomplete(float[] arr1, int size) {
+	public double[] recomplete(double[] arr1, int size) {
 		while (size < arraySize) {
-//			for (int i = 0; i < arr1.length; i++) {
-//				System.out.println(arr1[i]);
-//			}
-//			System.out.println("\n");
+			// for (int i = 0; i < arr1.length; i++) {
+			// System.out.println(arr1[i]);
+			// }
+			// System.out.println("\n");
 			arr1 = recomposition(arr1, size);
 			size = size * 2;
 		}
 		return arr1;
 	}
 
-	public float[] compression(float[] arr, float epsilon){
-		for(int i = 0; i < arr.length; i++){
-			if(Math.abs(arr[i]) < epsilon){
+	public double[] compression(double[] arr, float epsilon) {
+		for (int i = 0; i < arr.length; i++) {
+			if (Math.abs(arr[i]) < epsilon) {
 				arr[i] = 0;
 			}
 		}
 		return arr;
 	}
-	
-	
+
 	/**
-	 * @require origin.lenght = end.lenght
+	 * @require origin.lenght == end.lenght
 	 * @param origin
 	 * @param end
 	 * @return
 	 */
-	public double distance(float[] origin, float[] end) {
+	public double distance(double[] origin, double[] end) {
 		float sum = 0;
 		for (int i = 0; i < origin.length; i++) {
 			sum += Math.pow(origin[i] - end[i], 2);
