@@ -77,6 +77,7 @@ public class Algo {
 		return arr;
 	}
 	
+	
 	/**
 	 * @require origin.lenght = end.lenght
 	 * @param origin
