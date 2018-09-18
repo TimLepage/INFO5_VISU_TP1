@@ -1,7 +1,8 @@
 package tp1;
 
 public class Algo {
-	public int arraySize = 1024;
+	public double bornesup = 0.5;
+	public int arraySize = 1024; //@require doit etre puissance de 2
 	public double[] arr1;
 	public double[] arr2;
 	public double[] arrbase;
@@ -10,7 +11,7 @@ public class Algo {
 	public Algo() {
 		arr1 = new double[arraySize];
 		for (int j = 0; j < arraySize; j++) {
-			arr1[j] = Math.sin(Math.pow(j,3));
+			arr1[j] = Math.cos((2*Math.PI*(double)bornesup*j/arraySize)/0.2);
 		}
 
 		arrbase = arr1;
@@ -75,7 +76,7 @@ public class Algo {
 		return arr1;
 	}
 
-	public double[] compression(double[] arr, float epsilon) {
+	public double[] compression(double[] arr, double epsilon) {
 		for (int i = 0; i < arr.length; i++) {
 			if (Math.abs(arr[i]) < epsilon) {
 				arr[i] = 0;
