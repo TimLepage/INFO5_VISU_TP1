@@ -3,8 +3,8 @@ package tp1;
 public class Main {
 
 	public static void main(String[] args) {
-		boolean debug = false;
-		float epsilon = (float) 0.1;
+		boolean debug = true;
+		double epsilon = 0.8;
 		Algo algo1 = new Algo();
 		// algo1.decomposition(algo1.arr1, algo1.arr2, 2);
 		// for(int i = 0; i < algo1.arr2.length; i ++){
