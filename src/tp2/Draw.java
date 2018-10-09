@@ -14,8 +14,9 @@ import javax.swing.SwingUtilities;
 
 
 public class Draw extends JFrame {
-	ArrayList pointList = new ArrayList<Point>();
+	Point[] pointList;
 	public Draw() {
+		pointList = Polygon.getPointList();
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setMinimumSize(new Dimension(800, 600));
 		JPanel panel;
