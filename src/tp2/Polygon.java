@@ -41,6 +41,7 @@ public class Polygon {
 
 	public static void main(String[] args) {
 		Polygon p = new Polygon();
+		Draw d = new Draw(p);
 	}
 
 }

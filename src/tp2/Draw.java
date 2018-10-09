@@ -15,10 +15,11 @@ import javax.swing.SwingUtilities;
 
 public class Draw extends JFrame {
 	Point[] pointList;
+	private int multiplicateur= 100 ;
 	public Draw(Polygon p) {
 		pointList = p.getPointList();
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setMinimumSize(new Dimension(800, 600));
+		setMinimumSize(new Dimension(1000, 1000));
 		JPanel panel;
 		add(panel = new JPanel() {
 			public void paintComponent(Graphics g) {
@@ -31,7 +32,7 @@ public class Draw extends JFrame {
 				
 				g2.setColor(Color.BLACK);
 				for(int i = 0; i < pointList.length; i++){
-					g2.drawLine((int)pointList[i].getX(),(int) pointList[i].getY(), (int)pointList[(i+1)%pointList.length].getX(), (int) pointList[(i+1)%pointList.length].getY());
+					g2.drawLine((int)(pointList[i].getX()*multiplicateur),(int) (pointList[i].getY()*multiplicateur), (int)(pointList[(i+1)%pointList.length].getX()*multiplicateur), (int) (pointList[(i+1)%pointList.length].getY()*multiplicateur));
 				}
 			}
 		});
