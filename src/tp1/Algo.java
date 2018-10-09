@@ -11,7 +11,7 @@ public class Algo {
 	public Algo() {
 		arr1 = new double[arraySize];
 		for (int j = 0; j < arraySize; j++) {
-			arr1[j] = Math.cos((2*Math.PI*(double)bornesup*j/arraySize)/0.2);
+			arr1[j] = Math.sin();
 		}
 
 		arrbase = arr1;
@@ -77,6 +77,8 @@ public class Algo {
 	}
 
 	public double[] compression(double[] arr, double epsilon) {
+		System.out.println(epsilon
+				);
 		for (int i = 0; i < arr.length; i++) {
 			if (Math.abs(arr[i]) < epsilon) {
 				arr[i] = 0;
