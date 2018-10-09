@@ -2,16 +2,21 @@ package tp1;
 
 public class Algo {
 	public double bornesup = 0.5;
-	public int arraySize = 1024; //@require doit etre puissance de 2
+	public int arraySize = 1024; // @require doit etre puissance de 2
 	public double[] arr1;
 	public double[] arr2;
 	public double[] arrbase;
-	boolean debug = true;
+	boolean debug = false;
 
 	public Algo() {
 		arr1 = new double[arraySize];
 		for (int j = 0; j < arraySize; j++) {
+<<<<<<< HEAD
 			arr1[j] = Math.sin();
+=======
+			//arr1[j] = Math.cos((2 * Math.PI * (double) bornesup * j / arraySize) / 0.2);
+			arr1[j] = Math.random();
+>>>>>>> e446593ed527df409cb304f61f33a6e4f5e8adf6
 		}
 
 		arrbase = arr1;

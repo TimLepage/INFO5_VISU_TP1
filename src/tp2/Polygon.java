@@ -9,6 +9,9 @@ public class Polygon {
 
 	private Point[] pointList= new Point[512];
 
+	public Point[] getPointList() {
+		return this.pointList;
+	}
 	public Polygon() {
 		
 		LectureFichier();
@@ -29,7 +32,6 @@ public class Polygon {
 				pointList[i] = new Point(Float.valueOf(s[0]),Float.valueOf(s[1]));
 				i++;
 			}
-			System.out.println(pointList[0]);
 			buff.close();
 		} catch (Exception e) {
 
