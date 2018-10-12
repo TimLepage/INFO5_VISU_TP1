@@ -41,13 +41,11 @@ public class Polygon {
 	public static void main(String[] args) {
 		Polygon p = new Polygon();
 		Algorithm a = new Algorithm();
-		Point[] res = a.decomposition(p.getPointList(), 256);
-		Point[] res2 = a.recomposition(res, 256);
-		Point[] res3 = a.decomposition(res, 128);
-		Draw d = new Draw(Arrays.copyOfRange(res, 0, 256));
-		Draw d1 = new Draw(Arrays.copyOfRange(res2, 0, 512));
-		//Draw d2 = new Draw(Arrays.copyOfRange(res3, 0, 128));
-		Draw original = new Draw(p.pointList);//original
+		Point[] res = a.decomplete(p.getPointList(), 512);
+		Point[] res2 = a.recomplete(res, 4);
+		Draw d = new Draw(Arrays.copyOfRange(res, 0, 4));
+		Draw d2 = new Draw(Arrays.copyOfRange(res2, 0, 512));
+		System.out.println(a.distance(res2, p.getPointList()));
 	}
 
 }
