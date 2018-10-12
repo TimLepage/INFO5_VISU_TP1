@@ -13,18 +13,18 @@ public class Algorithm {
 		Point[] restab = new Point[512];
 		for (int i = 0; i < size; i++) {
 			restab[i] = new Point(
-					0.25 * (-tab[mod(2 * i - 2, 512)].getX() + 3 * tab[mod(2 * i - 1, 512)].getX()
-							+ 3 * tab[mod(2 * i, 512)].getX() - tab[mod(2 * i + 1, 512)].getX()),
-					0.25 * (-tab[mod(2 * i - 2, 512)].getY() + 3 * tab[mod(2 * i - 1, 512)].getY()
-							+ 3 * tab[mod(2 * i, 512)].getY() - tab[mod(2 * i + 1, 512)].getY())); // Valeur
+					0.25 * (-tab[mod(2 * i - 2, 2 * size)].getX() + 3 * tab[mod(2 * i - 1, 2 * size)].getX()
+							+ 3 * tab[mod(2 * i, 2 * size)].getX() - tab[mod(2 * i + 1, 2 * size)].getX()),
+					0.25 * (-tab[mod(2 * i - 2, 2 * size)].getY() + 3 * tab[mod(2 * i - 1, 2 * size)].getY()
+							+ 3 * tab[mod(2 * i, 2 * size)].getY() - tab[mod(2 * i + 1, 2 * size)].getY())); // Valeur
 
 		}
 		for (int i = size; i < 2 * size; i++) {
 			restab[i] = new Point(
-					0.25 * (tab[mod(2 * i - 2, 512)].getX() - 3 * tab[mod(2 * i - 1, 512)].getX()
-							+ 3 * tab[mod(2 * i, 512)].getX() - tab[mod(2 * i + 1, 512)].getX()),
-					0.25 * (-tab[mod(2 * i - 2, 512)].getY() + 3 * tab[mod(2 * i - 1, 512)].getY()
-							+ 3 * tab[mod(2 * i, 512)].getY() - tab[mod(2 * i + 1, 512)].getY())); // Detail
+					0.25 * (tab[mod(2 * i - 2, 2 * size)].getX() - 3 * tab[mod(2 * i - 1, 2 * size)].getX()
+							+ 3 * tab[mod(2 * i, 2 * size)].getX() - tab[mod(2 * i + 1, 2 * size)].getX()),
+					0.25 * (-tab[mod(2 * i - 2, 2 * size)].getY() + 3 * tab[mod(2 * i - 1, 2 * size)].getY()
+							+ 3 * tab[mod(2 * i, 2 * size)].getY() - tab[mod(2 * i + 1, 2 * size)].getY())); // Detail
 
 		}
 
@@ -35,23 +35,23 @@ public class Algorithm {
 		return restab;
 	}
 
-	public Point[] recomposition(Point[] tab, int size) { //TODO a débug
+	public Point[] recomposition(Point[] tab, int size) { // TODO a débug
 		Point[] restab = new Point[512];
-		for (int i = 0; i < size; i+=2) {
+		for (int i = 0; i < size; i++) {
 			restab[2 * i] = new Point(
-					0.75 * (tab[i % 512].getX() + tab[(i + size) % 512].getX())
-							+ 0.25 * (tab[(i + 1) % 512].getX() - tab[(i + 1 + size) % 512].getX()),
-					0.75 * (tab[i % 512].getY() + tab[(i + size) % 512].getY())
-							+ 0.25 * (tab[(i + 1) % 512].getY() - tab[(i + 1 + size) % 512].getY())); // Valeur
+					0.75 * (tab[i % (size)].getX() + tab[(i + size) % (2 * size)].getX())
+							+ 0.25 * (tab[(i + 1) % (size)].getX() - tab[(i + 1 + size) % (2 * size)].getX()),
+					0.75 * (tab[i % (size)].getY() + tab[(i + size) % (2 * size)].getY())
+							+ 0.25 * (tab[(i + 1) % (size)].getY() - tab[(i + 1 + size) % (2 * size)].getY())); // Valeur
 			restab[2 * i + 1] = new Point(
-					0.25 * (tab[i % 512].getX() + tab[(i + size) % 512].getX())
-							+ 0.75 * (tab[(i + 1) % 512].getX() - tab[(i + 1 + size) % 512].getX()),
-					0.25 * (tab[i % 512].getY() + tab[(i + size) % 512].getY())
-							+ 0.75 * (tab[(i + 1) % 512].getY() - tab[(i + 1 + size) % 512].getY())); // Valeur
+					0.25 * (tab[i % (size)].getX() + tab[(i + size) % (2 * size)].getX())
+							+ 0.75 * (tab[(i + 1) % (size)].getX() - tab[(i + 1 + size) % (2 * size)].getX()),
+					0.25 * (tab[i % (size)].getY() + tab[(i + size) % (2 * size)].getY())
+							+ 0.75 * (tab[(i + 1) % (size)].getY() - tab[(i + 1 + size) % (2 * size)].getY())); // Valeur
 
 		}
 
-		for (int i = 2 * size; i < 512; i++) {
+		for (int i = 2 * size + 1; i < 512; i++) {
 			restab[i] = tab[i];
 		}
 

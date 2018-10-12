@@ -27,9 +27,7 @@ public class Polygon {
 			String[] s;
 			int i=0;
 			while ((ligne = buff.readLine()) != null) {
-				System.out.println(ligne);
 				s= ligne.toString().split(" ");
-				System.out.println(s.toString());
 				pointList[i] = new Point(Float.valueOf(s[0]),Float.valueOf(s[1]));
 				i++;
 			}
@@ -44,9 +42,12 @@ public class Polygon {
 		Polygon p = new Polygon();
 		Algorithm a = new Algorithm();
 		Point[] res = a.decomposition(p.getPointList(), 256);
-		//Point[] res2 = a.recomposition(res, 256);
+		Point[] res2 = a.recomposition(res, 256);
+		Point[] res3 = a.decomposition(res, 128);
 		Draw d = new Draw(Arrays.copyOfRange(res, 0, 256));
-		Draw d2 = new Draw(p.pointList);
+		Draw d1 = new Draw(Arrays.copyOfRange(res2, 0, 512));
+		//Draw d2 = new Draw(Arrays.copyOfRange(res3, 0, 128));
+		Draw original = new Draw(p.pointList);//original
 	}
 
 }
