@@ -11,12 +11,8 @@ public class Algo {
 	public Algo() {
 		arr1 = new double[arraySize];
 		for (int j = 0; j < arraySize; j++) {
-<<<<<<< HEAD
-			arr1[j] = Math.sin();
-=======
-			//arr1[j] = Math.cos((2 * Math.PI * (double) bornesup * j / arraySize) / 0.2);
-			arr1[j] = Math.random();
->>>>>>> e446593ed527df409cb304f61f33a6e4f5e8adf6
+			arr1[j] = Math.sin(bornesup);
+
 		}
 
 		arrbase = arr1;

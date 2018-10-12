@@ -38,16 +38,31 @@ public class Algorithm {
 	public Point[] recomposition(Point[] tab, int size) { // TODO a débug
 		Point[] restab = new Point[512];
 		for (int i = 0; i < size; i++) {
-			restab[2 * i] = new Point(
-					0.75 * (tab[i % (size)].getX() + tab[(i + size) % (2 * size)].getX())
-							+ 0.25 * (tab[(i + 1) % (size)].getX() - tab[(i + 1 + size) % (2 * size)].getX()),
-					0.75 * (tab[i % (size)].getY() + tab[(i + size) % (2 * size)].getY())
-							+ 0.25 * (tab[(i + 1) % (size)].getY() - tab[(i + 1 + size) % (2 * size)].getY())); // Valeur
-			restab[2 * i + 1] = new Point(
-					0.25 * (tab[i % (size)].getX() + tab[(i + size) % (2 * size)].getX())
-							+ 0.75 * (tab[(i + 1) % (size)].getX() - tab[(i + 1 + size) % (2 * size)].getX()),
-					0.25 * (tab[i % (size)].getY() + tab[(i + size) % (2 * size)].getY())
-							+ 0.75 * (tab[(i + 1) % (size)].getY() - tab[(i + 1 + size) % (2 * size)].getY())); // Valeur
+			if(i + 1 + size == 2*size) {
+				System.out.println("ee");
+				restab[2 * i] = new Point(
+						0.75 * (tab[i % (size)].getX() + tab[(i + size) % (2 * size)].getX())
+								+ 0.25 * (tab[(i + 1) % (size)].getX() - tab[(i + 1 + size) % (2 * size)+size].getX()),
+						0.75 * (tab[i % (size)].getY() + tab[(i + size) % (2 * size)].getY())
+								+ 0.25 * (tab[(i + 1) % (size)].getY() - tab[(i + 1 + size) % (2 * size)+size].getY())); // Valeur
+				restab[2 * i + 1] = new Point(
+						0.25 * (tab[i % (size)].getX() + tab[(i + size) % (2 * size)].getX())
+								+ 0.75 * (tab[(i + 1) % (size)].getX() - tab[(i + 1 + size) % (2 * size)+size].getX()),
+						0.25 * (tab[i % (size)].getY() + tab[(i + size) % (2 * size)].getY())
+								+ 0.75 * (tab[(i + 1) % (size)].getY() - tab[(i + 1 + size) % (2 * size)+size].getY())); // Valeur
+			}else {
+
+				restab[2 * i] = new Point(
+						0.75 * (tab[i % (size)].getX() + tab[(i + size) % (2 * size)].getX())
+								+ 0.25 * (tab[(i + 1) % (size)].getX() - tab[(i + 1 + size) % (2 * size)].getX()),
+						0.75 * (tab[i % (size)].getY() + tab[(i + size) % (2 * size)].getY())
+								+ 0.25 * (tab[(i + 1) % (size)].getY() - tab[(i + 1 + size) % (2 * size)].getY())); // Valeur
+				restab[2 * i + 1] = new Point(
+						0.25 * (tab[i % (size)].getX() + tab[(i + size) % (2 * size)].getX())
+								+ 0.75 * (tab[(i + 1) % (size)].getX() - tab[(i + 1 + size) % (2 * size)].getX()),
+						0.25 * (tab[i % (size)].getY() + tab[(i + size) % (2 * size)].getY())
+								+ 0.75 * (tab[(i + 1) % (size)].getY() - tab[(i + 1 + size) % (2 * size)].getY())); // Valeur
+			}
 
 		}
 
