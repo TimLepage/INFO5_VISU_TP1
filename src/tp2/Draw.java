@@ -19,8 +19,8 @@ public class Draw extends JFrame {
 	public Draw(Point[] pointList) {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setMinimumSize(new Dimension(1000, 1000));
-		JPanel panel;
-		add(panel = new JPanel() {
+		JPanel panel1;
+		add(panel1 = new JPanel() {
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				Graphics2D g2 = (Graphics2D) g;
